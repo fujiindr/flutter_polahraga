@@ -3,7 +3,7 @@ class BarangModel {
   String? message;
   List<Data>? data;
 
-  BarangModel({this.success, this.message, this.data});
+  BarangModel({required this.success,required this.message,required this.data,});
 
   BarangModel.fromJson(Map<String, dynamic> json) {
     success = json['success'];

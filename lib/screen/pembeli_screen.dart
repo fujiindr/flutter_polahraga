@@ -42,12 +42,34 @@ class PembeliScreen extends StatelessWidget {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            Text(
+                            Column(
+                              children: [
+                                Row(
+                                  children: [
+                                    Text(
                                 pembelicontroller.pembeliList[index].nama_pembeli.toString()),
-                            Text(
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    Text(
                                 pembelicontroller.pembeliList[index].alamat.toString()),
-                            Text(pembelicontroller.pembeliList[index].no_hp.toString()),
-                            Text( pembelicontroller.pembeliList[index].email.toString())
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    Text(
+                                      pembelicontroller.pembeliList[index].no_hp.toString()),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    Text( 
+                                      pembelicontroller.pembeliList[index].email.toString())
+                                  ],
+                                )
+                              ],
+                            ),
                           ],
                         ),
                       ),
