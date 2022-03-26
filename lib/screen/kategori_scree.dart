@@ -24,30 +24,32 @@ class KategoriScreen extends StatelessWidget {
             ? Center(child: const CircularProgressIndicator())
             : Center(
                 child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
                 itemCount: kategoricontroller.kategoriList.length,
                 itemBuilder: (content, index) {
-                  return Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Container(
-                        width: 300,
-                        height: 75,
-                        margin: EdgeInsets.only(bottom: 10, top: 10),
-                        padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                              colors: [Color.fromARGB(255, 57, 136, 135), Color.fromARGB(255, 57, 136, 135)]),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Text(
-                                kategoricontroller.kategoriList[index].nama_kategori.toString()),
-                          ],
-                        ),
-                      ),
-                    ],
+                  return Container(
+                    // width: 500,
+                    // height: 200,
+                    margin: EdgeInsets.only(bottom: 10, top: 10),
+                    padding: EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      // gradient: LinearGradient(
+                      //     colors: [Color.fromARGB(255, 57, 136, 135), Color.fromARGB(255, 57, 136, 135)]),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: DataTable(
+                      columns: [
+                        // DataColumn(label: Text('No')),
+                        DataColumn(label: Text('Nama Kategori')),
+                      ],
+                      rows: [
+                        DataRow(cells: [
+                          // DataCell(Text('1')),
+                          DataCell(Text (kategoricontroller.kategoriList[index].nama_kategori.toString())),
+                        ]),
+                      ]
+                    ),
                   );
                 },
               )),

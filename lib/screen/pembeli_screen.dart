@@ -26,58 +26,80 @@ class PembeliScreen extends StatelessWidget {
                 child: ListView.builder(
                 itemCount: pembelicontroller.pembeliList.length,
                 itemBuilder: (content, index) {
-                  return Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Container(
-                        width: 300,
-                        height: 100,
-                        margin: EdgeInsets.only(bottom: 10, top: 10),
-                        padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                              colors: [Color.fromARGB(255, 57, 136, 135), Color.fromARGB(255, 57, 136, 135)]),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Column(
+                  return SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: AssetImage("assets/img/lib.jpg"),
+                                  fit: BoxFit.cover)),
+                          child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                Row(
-                                  children: [
-                                    Text(
-                                pembelicontroller.pembeliList[index].nama_pembeli.toString()),
-                                  ],
-                                ),
-                                Row(
-                                  children: [
-                                    Text(
-                                pembelicontroller.pembeliList[index].alamat.toString()),
-                                  ],
-                                ),
-                                Row(
-                                  children: [
-                                    Text(
-                                      pembelicontroller.pembeliList[index].no_hp.toString()),
-                                  ],
-                                ),
-                                Row(
-                                  children: [
-                                    Text( 
-                                      pembelicontroller.pembeliList[index].email.toString())
-                                  ],
+                                Container(
+                                    margin: EdgeInsets.all(15),
+                                    child: DataTable(
+                      columns: [
+                        // DataColumn(label: Text('No')),
+                        DataColumn(label: Text('Nama Pembeli')),
+                        DataColumn(label: Text('Alamat')),
+                        DataColumn(label: Text('No Hp')),
+                        DataColumn(label: Text('Email')),
+                      ],
+                      rows: [
+                        DataRow(cells: [
+                          // DataCell(Text('1')),
+                          DataCell(Text (pembelicontroller.pembeliList[index].nama_pembeli.toString())),
+                          DataCell(Text (pembelicontroller.pembeliList[index].alamat.toString())),
+                          DataCell(Text (pembelicontroller.pembeliList[index].no_hp.toString())),
+                          DataCell(Text (pembelicontroller.pembeliList[index].email.toString())),
+                        ]),
+                      ]
+                    ),
                                 )
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  );
+                              ,]
+                          ),
+                  )
+                      ]
+                    )
+                    );
                 },
               )),
       ),
     );
   }
 }
+
+// import 'package:flutter/material.dart';
+
+// void main() {
+//   runApp(PembeliPage());
+// }
+
+// class PembeliPage extends StatefulWidget {
+//   PembeliPage({Key? key}) : super(key: key);
+
+//   @override
+//   State<PembeliPage> createState() => PembeliPageState();
+// }
+
+// class PembeliPageState extends State<PembeliPage> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       home: Scaffold(
+//         appBar: AppBar(
+//           title: Text('Tabel Kategori'),
+//         ),
+//         body: ListView(
+//           children: 
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }

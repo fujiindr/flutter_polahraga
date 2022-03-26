@@ -24,40 +24,42 @@ class TransaksiScreen extends StatelessWidget {
             ? Center(child: const CircularProgressIndicator())
             : Center(
                 child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
                 itemCount: transaksicontroller.transaksiList.length,
                 itemBuilder: (content, index) {
-                  return Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Container(
-                        width: 300,
-                        height: 125,
-                        margin: EdgeInsets.only(bottom: 10, top: 10),
-                        padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                              colors: [Color.fromARGB(255, 57, 136, 135), Color.fromARGB(255, 57, 136, 135)]),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Text(
-                                transaksicontroller.transaksiList[index].namaPembeli.toString()),
-                            Text(
-                                transaksicontroller.transaksiList[index].namaBarang.toString()),
-                            Text(
-                                transaksicontroller.transaksiList[index].tanggalBeli.toString()),
-                            Text(
-                                transaksicontroller.transaksiList[index].harga.toString()),
-                            Text(
-                                transaksicontroller.transaksiList[index].jumlah.toString()),
-                            Text(
-                                transaksicontroller.transaksiList[index].total.toString()),
-                          ],
-                        ),
-                      ),
-                    ],
+                  return Container(
+                    // width: 500,
+                    // height: 200,
+                    margin: EdgeInsets.only(bottom: 10, top: 10),
+                    padding: EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      // gradient: LinearGradient(
+                      //     colors: [Color.fromARGB(255, 57, 136, 135), Color.fromARGB(255, 57, 136, 135)]),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: DataTable(
+                      columns: [
+                        // DataColumn(label: Text('No')),
+                        DataColumn(label: Text('Nama Pembeli')),
+                        DataColumn(label: Text('Nama Barang')),
+                        DataColumn(label: Text('Tanggal Beli')),
+                        DataColumn(label: Text('Harga')),
+                        DataColumn(label: Text('Jumlah')),
+                        DataColumn(label: Text('Total')),
+                      ],
+                      rows: [
+                        DataRow(cells: [
+                          // DataCell(Text('1')),
+                          DataCell(Text (transaksicontroller.transaksiList[index].namaPembeli.toString())),
+                          DataCell(Text (transaksicontroller.transaksiList[index].namaBarang.toString())),
+                          DataCell(Text (transaksicontroller.transaksiList[index].tanggalBeli.toString())),
+                          DataCell(Text (transaksicontroller.transaksiList[index].harga.toString())),
+                          DataCell(Text (transaksicontroller.transaksiList[index].jumlah.toString())),
+                          DataCell(Text (transaksicontroller.transaksiList[index].total.toString())),
+                        ]),
+                      ]
+                    ),
                   );
                 },
               )),

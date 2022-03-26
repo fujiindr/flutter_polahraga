@@ -24,40 +24,40 @@ class BarangScreen extends StatelessWidget {
             ? Center(child: const CircularProgressIndicator())
             : Center(
                 child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
                 itemCount: barangcontroller.barangList.length,
                 itemBuilder: (content, index) {
-                  return Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Container(
-                        width: 300,
-                        height: 125,
-                        margin: EdgeInsets.only(bottom: 10, top: 10),
-                        padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                              colors: [Color.fromARGB(255, 57, 136, 135), Color.fromARGB(255, 57, 136, 135)]),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Text(
-                                barangcontroller.barangList[index].namaBarang.toString()),
-                            Text(
-                                barangcontroller.barangList[index].namaKategori.toString()),
-                            Text(
-                                barangcontroller.barangList[index].stok.toString()),
-                            Text(
-                                barangcontroller.barangList[index].deskripsi.toString()),
-                            Text(
-                                barangcontroller.barangList[index].harga.toString()),
-                            Text(
-                                barangcontroller.barangList[index].cover.toString()),
-                          ],
-                        ),
-                      ),
-                    ],
+                  return Container(
+                    // width: 500,
+                    // height: 200,
+                    margin: EdgeInsets.only(bottom: 10, top: 10),
+                    padding: EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      // gradient: LinearGradient(
+                      //     colors: [Color.fromARGB(255, 57, 136, 135), Color.fromARGB(255, 57, 136, 135)]),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: DataTable(
+                      columns: [
+                        // DataColumn(label: Text('No')),
+                        DataColumn(label: Text('Nama Barang')),
+                        DataColumn(label: Text('Nama Kategori')),
+                        DataColumn(label: Text('Stok')),
+                        DataColumn(label: Text('Deskripsi')),
+                        DataColumn(label: Text('Harga')),
+                      ],
+                      rows: [
+                        DataRow(cells: [
+                          // DataCell(Text('1')),
+                          DataCell(Text (barangcontroller.barangList[index].namaBarang.toString())),
+                          DataCell(Text (barangcontroller.barangList[index].namaKategori.toString())),
+                          DataCell(Text (barangcontroller.barangList[index].stok.toString())),
+                          DataCell(Text (barangcontroller.barangList[index].deskripsi.toString())),
+                          DataCell(Text (barangcontroller.barangList[index].harga.toString())),
+                        ]),
+                      ]
+                    ),
                   );
                 },
               )),

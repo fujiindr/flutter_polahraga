@@ -93,7 +93,7 @@ class _MenuPageState extends State<MenuPage> {
               onTap: () {
                 Navigator.of(context, rootNavigator: false).push(
                   MaterialPageRoute(
-                    builder: (BuildContext context) => const PembeliPage(),
+                    builder: (BuildContext context) => const PembeliScreen(),
                   ),
                 );
               },

@@ -27,35 +27,40 @@ class PembeliPage extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                 itemCount: pembelicontroller.pembeliList.length,
                 itemBuilder: (content, index) {
-                  return Container(
-                    // width: 500,
-                    // height: 200,
-                    margin: EdgeInsets.only(bottom: 10, top: 10),
-                    padding: EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      // gradient: LinearGradient(
-                      //     colors: [Color.fromARGB(255, 57, 136, 135), Color.fromARGB(255, 57, 136, 135)]),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: DataTable(
-                      columns: [
-                        // DataColumn(label: Text('No')),
-                        DataColumn(label: Text('Nama Pembeli')),
-                        DataColumn(label: Text('Alamat')),
-                        DataColumn(label: Text('No Hp')),
-                        DataColumn(label: Text('Email')),
-                      ],
-                      rows: [
-                        DataRow(cells: [
-                          // DataCell(Text('1')),
-                          DataCell(Text (pembelicontroller.pembeliList[index].nama_pembeli.toString())),
-                          DataCell(Text (pembelicontroller.pembeliList[index].alamat.toString())),
-                          DataCell(Text (pembelicontroller.pembeliList[index].no_hp.toString())),
-                          DataCell(Text (pembelicontroller.pembeliList[index].email.toString())),
-                        ]),
-                      ]
-                    ),
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Container(
+                        // width: 500,
+                        // height: 200,
+                        margin: EdgeInsets.only(bottom: 10, top: 10),
+                        padding: EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          // gradient: LinearGradient(
+                          //     colors: [Color.fromARGB(255, 57, 136, 135), Color.fromARGB(255, 57, 136, 135)]),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: DataTable(
+                          columns: [
+                            // DataColumn(label: Text('No')),
+                            DataColumn(label: Text('Nama Pembeli')),
+                            DataColumn(label: Text('Alamat')),
+                            DataColumn(label: Text('No Hp')),
+                            DataColumn(label: Text('Email')),
+                          ],
+                          rows: [
+                            DataRow(cells: [
+                              // DataCell(Text('1')),
+                              DataCell(Text (pembelicontroller.pembeliList[index].nama_pembeli.toString())),
+                              DataCell(Text (pembelicontroller.pembeliList[index].alamat.toString())),
+                              DataCell(Text (pembelicontroller.pembeliList[index].no_hp.toString())),
+                              DataCell(Text (pembelicontroller.pembeliList[index].email.toString())),
+                            ]),
+                          ]
+                        ),
+                      ),
+                    ],
                   );
                 },
               )),

@@ -15,6 +15,8 @@ class HomePage extends StatelessWidget {
         alignment: Alignment.center,
         child: ListView(
           children: [
+            Padding(padding: EdgeInsets.only(top: 150),
+),
             Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
